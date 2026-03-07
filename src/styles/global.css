@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* small custom helpers */
+.app-shell { @apply max-w-6xl mx-auto my-6 px-4; }
+.app-header { @apply flex items-center justify-between mb-4; }
+.brand { @apply flex items-center gap-3; }
+.logo { @apply w-11 h-11 rounded-lg bg-gradient-to-br from-sky-600 to-cyan-400 shadow-md; }
+.subtle { @apply text-sm text-slate-500 }
+.main-grid { @apply grid grid-cols-[320px_1fr] gap-5; }
+.card { @apply bg-white p-5 rounded-xl shadow-lg }
+.form-card label { @apply font-semibold text-sm mt-3 }
+.form-card input, .form-card select, .form-card textarea { @apply mt-2 p-3 border border-slate-200 rounded-lg bg-slate-50 }
+.form-card textarea { @apply min-h-[100px] }
+.form-actions { @apply mt-4 flex gap-3 }
+.btn { @apply px-4 py-2 rounded-lg font-semibold }
+.btn-primary { @apply bg-sky-600 text-white }
+.btn-ghost { @apply border border-slate-200 }
+.btn-danger { @apply bg-red-600 text-white }
+.table-wrap { @apply overflow-auto }
+table { @apply w-full border-collapse text-sm }
+th, td { @apply px-4 py-3 border-b border-slate-100 text-left }
+thead th { @apply bg-gradient-to-b from-white to-slate-50 font-semibold }
+tbody tr:nth-child(even) { @apply bg-slate-50 }
+@media (max-width: 900px) { .main-grid { grid-template-columns: 1fr } }
+
+/* ---------- Replaced Tailwind with plain CSS for immediate rendering ---------- */
+* { box-sizing: border-box; }
+body { font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; margin:0; background:#f5f7fa; color:#111827 }
+.app-shell { max-width:1100px; margin:28px auto; padding:20px }
+.header { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px }
+.brand { display:flex; gap:12px; align-items:center }
+.logo { width:48px; height:48px; border-radius:10px; background:linear-gradient(135deg,#0ea5e9,#7c3aed); box-shadow:0 8px 30px rgba(12,74,110,0.08) }
+.brand h1 { margin:0; font-size:20px }
+.subtle { color:#6b7280; font-size:13px }
+.search { margin-left:20px }
+.search input { padding:10px 12px; border-radius:8px; border:1px solid #e6e9ee; width:360px }
+.main-grid { display:grid; grid-template-columns:320px 1fr; gap:20px; align-items:start }
+.card { background:#fff; padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(15,23,42,0.06) }
+.form-card h2, .list-card h2 { margin:0 0 8px 0 }
+.form-card label { display:block; margin-top:10px; font-weight:600 }
+.form-card input, .form-card select, .form-card textarea { width:100%; padding:10px; margin-top:6px; border:1px solid #e6e9ee; border-radius:8px; background:#fbfdff }
+.form-card textarea { min-height:100px }
+.form-actions { margin-top:14px; display:flex; gap:8px }
+.btn { padding:10px 14px; border-radius:8px; border:none; cursor:pointer; font-weight:600 }
+.btn.primary { background:#0ea5e9; color:white }
+.btn.ghost { background:transparent; border:1px solid #e6e9ee }
+.btn.danger { background:#ef4444; color:white }
+.message { margin:10px 0; padding:10px; background:#eef6ff; border:1px solid #d8eefc; color:#0b69c9; border-radius:8px }
+.table-wrap { overflow:auto }
+table { width:100%; border-collapse:collapse; font-size:14px }
+th, td { padding:12px 10px; border-bottom:1px solid #f3f4f6; text-align:left }
+thead th { background:#fafafa; font-weight:700 }
+tbody tr:nth-child(even) { background:#fbfcfd }
+.actions button { margin-right:8px }
+.empty { text-align:center; padding:32px; color:#6b7280 }
+@media (max-width:800px) { .main-grid { grid-template-columns:1fr } .search input { width:200px } }
