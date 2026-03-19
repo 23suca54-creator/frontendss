@@ -18,7 +18,8 @@ jobs:
         # Replace <SONAR_ACTION_COMMIT_SHA> with the full commit SHA from
         # https://github.com/SonarSource/sonarqube-scan-action (click the tag/commit and copy the SHA).
         # Example format: SonarSource/sonarqube-scan-action@3f2b1a4c9e5d6f7a8b9c0d1e2f3a4b5c6d7e8f90
-        uses: SonarSource/sonarqube-scan-action@<SONAR_ACTION_COMMIT_SHA>
+  # Use the published v6 tag for now; to satisfy stricter policies replace with a full commit SHA later.
+  uses: SonarSource/sonarqube-scan-action@v6
         env:
           # Required: set this secret in your repository settings (Settings -> Secrets -> Actions)
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
