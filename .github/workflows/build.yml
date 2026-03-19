@@ -14,6 +14,15 @@ jobs:
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v6
+        # IMPORTANT: pin actions to a full commit SHA for security/reproducibility.
+        # Replace <SONAR_ACTION_COMMIT_SHA> with the full commit SHA from
+        # https://github.com/SonarSource/sonarqube-scan-action (click the tag/commit and copy the SHA).
+        # Example format: SonarSource/sonarqube-scan-action@3f2b1a4c9e5d6f7a8b9c0d1e2f3a4b5c6d7e8f90
+        uses: SonarSource/sonarqube-scan-action@<SONAR_ACTION_COMMIT_SHA>
         env:
+          # Required: set this secret in your repository settings (Settings -> Secrets -> Actions)
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          # If you use SonarCloud (recommended) set the host URL. For SonarCloud use:
+          # SONAR_HOST_URL: https://sonarcloud.io
+          # If using SonarQube server, set it to your server URL.
+          # SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
