@@ -18,8 +18,9 @@ export default function JobList() {
   const res = await axios.get('/jobs');
       setJobs(res.data || []);
     } catch (err) {
-      console.error(err);
-      setError('Error fetching jobs');
+  console.error('Error fetching jobs', err);
+  const serverMsg = err && err.response && err.response.data ? (typeof err.response.data === 'string' ? err.response.data : JSON.stringify(err.response.data)) : (err.message || 'unknown error');
+  setError('Error fetching jobs: ' + serverMsg);
     } finally {
       setLoading(false);
     }
@@ -64,8 +65,9 @@ export default function JobList() {
   await axios.delete(`/jobs/${id}`);
       fetchJobs();
     } catch (err) {
-      console.error(err);
-      alert('Error deleting job');
+  console.error('Error deleting job', err);
+  const serverMsg = err && err.response && err.response.data ? (typeof err.response.data === 'string' ? err.response.data : JSON.stringify(err.response.data)) : (err.message || 'unknown error');
+  alert('Error deleting job: ' + serverMsg);
     }
   };
 

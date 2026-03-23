@@ -65,8 +65,10 @@ export default function JobForm() {
       // Dispatch a custom event so JobList can refresh
       window.dispatchEvent(new Event('jobListShouldRefresh'));
     } catch (err) {
-      console.error(err);
-      setMessage('Error creating job');
+  console.error('Job create/update error', err);
+  // Prefer server-provided message when available, otherwise use generic error
+  const serverMsg = err && err.response && err.response.data ? (typeof err.response.data === 'string' ? err.response.data : JSON.stringify(err.response.data)) : null;
+  setMessage('Error creating job' + (serverMsg ? (': ' + serverMsg) : (': ' + (err.message || 'unknown error'))));
     } finally {
       setLoading(false);
     }
